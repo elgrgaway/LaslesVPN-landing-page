@@ -67,24 +67,24 @@ svg {
       font-weight: 500;
     }
   }
-  .checkbox-humburger {
-    display: none;
-  }
-  .navigation__list {
-    display: flex;
-
-    gap: 2rem;
-  }
   header {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 5rem;
+    .checkbox-humburger {
+      display: none;
+    }
+    .navigation__list {
+      display: flex;
+      gap: 2rem;
+    }
 
     .nav__list {
       display: flex;
       align-items: center;
+      margin: 0 auto;
       gap: 4rem;
     }
     .nav__link:link,
@@ -593,37 +593,7 @@ svg {
   html {
     font-size: 7px;
   }
-  .humburger__menu {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    align-self: center;
-  }
-  .humburger__menu__bar {
-    width: 4.375rem;
-    height: 0.3rem;
-    background-color: var(--color-gray);
-    transition: 0.3s;
-  }
-  html:has(.checkbox-humburger:checked) .humburger__menu__bar:nth-child(1) {
-    transform: translateY(7px) rotate(40deg);
-  }
-  html:has(.checkbox-humburger:checked) .humburger__menu__bar:nth-child(2) {
-    opacity: 0;
-    visibility: hidden;
-  }
-  html:has(.checkbox-humburger:checked) .humburger__menu__bar:nth-child(3) {
-    transform: translateY(-6px) rotate(-40deg);
-  }
-  html:has(.checkbox-humburger:checked) .nav__list {
-    opacity: 1;
-    visibility: visible;
-    top: 150%;
 
-    padding: 2rem 0;
-    border-bottom: 0.1rem solid var(--color-gray);
-    border-top: 0.1rem solid var(--color-gray);
-  }
   .container {
     padding: 0 2rem;
     header {
@@ -641,6 +611,37 @@ svg {
       .regest {
         gap: 3rem;
         margin-left: auto;
+      }
+      .humburger__menu {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        align-self: center;
+      }
+      .humburger__menu__bar {
+        width: 4.375rem;
+        height: 0.3rem;
+        background-color: var(--color-gray);
+        transition: 0.3s;
+      }
+      html:has(.checkbox-humburger:checked) .humburger__menu__bar:nth-child(1) {
+        transform: translateY(7px) rotate(40deg);
+      }
+      html:has(.checkbox-humburger:checked) .humburger__menu__bar:nth-child(2) {
+        opacity: 0;
+        visibility: hidden;
+      }
+      html:has(.checkbox-humburger:checked) .humburger__menu__bar:nth-child(3) {
+        transform: translateY(-6px) rotate(-40deg);
+      }
+      html:has(.checkbox-humburger:checked) .nav__list {
+        opacity: 1;
+        visibility: visible;
+        top: 150%;
+
+        padding: 2rem 0;
+        border-bottom: 0.1rem solid var(--color-gray);
+        border-top: 0.1rem solid var(--color-gray);
       }
     }
 
