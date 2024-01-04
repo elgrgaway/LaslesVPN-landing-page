@@ -39,6 +39,10 @@ a {
   text-decoration: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 img,
 picture,
 video,
@@ -52,6 +56,22 @@ svg {
   font-weight: 700;
 }
 
+@keyframes buttons-in {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes buttons-out {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
 .container {
   max-width: 144rem;
   padding: 0 15rem;
@@ -77,6 +97,7 @@ svg {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  gap: 1rem;
   justify-content: center;
   margin-top: 5rem;
 }
@@ -110,12 +131,42 @@ svg {
 .container header .regest .regest__link:visited {
   font-weight: 500;
   color: var(--color-black);
+  transition: 0.5s ease-in-out;
+}
+.container header .regest .regest__link:hover,
+.container header .regest .regest__link:active {
+  color: var(--color-orange);
 }
 .container header .regest .regest__link:nth-of-type(2) {
   padding: 1.3rem 4.5rem;
   color: var(--color-orange);
   border: 0.1rem solid var(--color-orange);
   border-radius: 5rem;
+}
+.container header .regest .regest__link:nth-of-type(2):hover,
+.container header .regest .regest__link:nth-of-type(2):active {
+  color: var(--color-white);
+  background-color: var(--color-orange);
+}
+.container .regest__link:nth-of-type(2) {
+  position: relative;
+}
+.container .regest__link:nth-of-type(2)::after {
+  content: "";
+  position: absolute;
+  background-color: var(--color-orange);
+  height: 100%;
+  width: 0; /* Set the initial width */
+  display: block;
+  animation: buttons-out 0.5s alternate-reverse;
+  top: 0;
+  left: 0;
+  border-radius: 5rem;
+  z-index: -1;
+  transition: width 0.5s ease-in-out;
+}
+.container .regest__link:nth-of-type(2):hover::after {
+  animation: buttons-in 0.5s forwards alternate;
 }
 .container .section {
   display: flex;
@@ -149,18 +200,42 @@ svg {
   width: 61.1rem;
 }
 .container .button-start {
-  border: none;
-  background-color: var(--color-orange);
-  color: white;
+  border: 0.2rem solid var(--color-orange);
+  background-color: var(--color-white);
+  color: var(--color-orange);
   border-radius: 1rem;
   font-size: 1.6rem;
   font-weight: 700;
   padding: 1.75rem 7.75rem;
   position: relative;
   display: flex;
+  cursor: pointer;
   justify-content: center;
+  transition: all 0.5s ease-in;
+}
+.container .button-start:hover {
+  color: var(--color-white);
+  background-color: transparent;
+}
+.container .button-start::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  display: block;
+  animation: buttons-out 0.5s alternate-reverse ease-in-out forwards;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--color-orange);
+  z-index: -1;
+}
+.container .button-start:hover::before {
+  animation: buttons-in 0.5s alternate ease-in-out forwards;
 }
 .container .button-start::after {
+  transition: 0.5s ease-in;
+}
+.container .button-start:hover::after {
   content: "";
   position: absolute;
   width: 80%;
@@ -170,6 +245,7 @@ svg {
   background: rgba(245, 56, 56, 0.35);
   filter: blur(2.7rem);
   z-index: -1;
+  transition: all 0.5s;
 }
 .container .users {
   background: #fff;
@@ -252,6 +328,11 @@ svg {
   flex-direction: column;
   gap: 3rem;
   line-height: 3rem;
+  transition: all 0.2s ease-in-out;
+}
+.container .plan .cards .card:hover {
+  border: 0.1rem solid var(--color-orange);
+  transform: translateY(-1rem);
 }
 .container .plan .cards .img-card {
   align-self: center;
@@ -285,9 +366,6 @@ svg {
   font-weight: 700;
   background-color: transparent;
   font-size: 1.6rem;
-}
-.container .plan .cards .Premium-card {
-  border-color: var(--color-orange);
 }
 .container .plan .cards .Premium-card .Premium-select {
   background-color: var(--color-orange);
@@ -336,10 +414,6 @@ svg {
   justify-content: center;
   margin-left: 15rem;
 }
-.container .comments .comments__cards .selected {
-  border-color: var(--color-orange);
-  box-shadow: 0 7rem 5.7rem rgba(13, 16, 37, 0.06);
-}
 .container .comments .comments__cards .comment__card {
   padding: 3rem;
   border: 0.2rem solid #ddd;
@@ -347,6 +421,7 @@ svg {
   max-width: 40rem;
   min-width: 40rem;
   max-height: 24rem;
+  transition: all 0.2s ease-in-out;
 }
 .container .comments .comments__cards .comment__card .top {
   display: flex;
@@ -379,6 +454,10 @@ svg {
 .container .comments .comments__cards .comment__card .bottom {
   font-size: 1.6rem;
   line-height: 3rem;
+}
+.container .comments .comments__cards .comment__card:hover {
+  border: 0.2rem solid var(--color-orange);
+  transform: translateY(-1rem);
 }
 .container .comments .points {
   display: flex;
@@ -453,8 +532,11 @@ svg {
 .container .foot .about .social-icons img {
   background-color: var(--color-white);
   border-radius: 50%;
-  width: 2.5rem;
+  width: 3rem;
   padding: 0.5rem;
+}
+.container .foot .about .social-icons img:hover {
+  transform: scale(1.2);
 }
 .container .foot .about .copyright {
   margin-top: 3rem;
@@ -462,15 +544,23 @@ svg {
 }
 .container .foot .footer__col {
   justify-self: flex-start;
+  padding: 0 0.2rem;
 }
 .container .foot .footer__col h3 {
   font-size: 1.8rem;
   font-weight: 500;
   margin-bottom: 2rem;
 }
-.container .foot .footer__col p {
+.container .foot .footer__col a {
+  display: block;
   margin-top: 1rem;
   color: var(--color-gray);
+  margin: auto;
+}
+.container .foot .footer__col a:hover,
+.container .foot .footer__col p:hover {
+  transform: scale(1.05);
+  text-decoration: underline;
 }
 .container .foot::after {
   content: "";
@@ -482,9 +572,12 @@ svg {
   z-index: -1;
 }
 
-@media (max-width: 1150px) {
+@media (max-width: 1200px) {
   html {
     font-size: 8px;
+  }
+  .container {
+    padding: 0 13rem;
   }
   .container .comments .comments__cards {
     overflow-x: auto;
@@ -508,7 +601,7 @@ svg {
     gap: 1rem;
   }
 }
-@media (max-width: 900px) {
+@media (max-width: 950px) {
   .container header {
     gap: 3rem;
     justify-content: center;
