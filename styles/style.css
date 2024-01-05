@@ -223,6 +223,7 @@ svg {
   width: 0;
   display: block;
   animation: buttons-out 0.5s alternate-reverse ease-in-out forwards;
+  border-radius: 0.8rem;
   height: 100%;
   top: 0;
   left: 0;
@@ -534,6 +535,7 @@ svg {
   border-radius: 50%;
   width: 3rem;
   padding: 0.5rem;
+  cursor: pointer;
 }
 .container .foot .about .social-icons img:hover {
   transform: scale(1.2);
