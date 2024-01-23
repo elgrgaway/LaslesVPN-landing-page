@@ -117,6 +117,7 @@ svg {
 .container header .nav__link:link,
 .container header .nav__link:visited {
   color: var(--color-gray);
+  transition: 0.2s ease-in-out;
 }
 .container header .nav__link:hover,
 .container header .nav__link:active {
@@ -131,7 +132,7 @@ svg {
 .container header .regest .regest__link:visited {
   font-weight: 500;
   color: var(--color-black);
-  transition: 0.5s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 .container header .regest .regest__link:hover,
 .container header .regest .regest__link:active {
@@ -142,6 +143,7 @@ svg {
   color: var(--color-orange);
   border: 0.1rem solid var(--color-orange);
   border-radius: 5rem;
+  transition: 0.5s ease-in-out;
 }
 .container header .regest .regest__link:nth-of-type(2):hover,
 .container header .regest .regest__link:nth-of-type(2):active {
