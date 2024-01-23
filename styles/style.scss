@@ -267,9 +267,10 @@ svg {
         max-width: 5.5rem;
       }
     }
-    .users__container:nth-of-type(2),
-    .users__container:nth-of-type(1) {
+    .users__container:nth-of-type(2){
       border-right: 0.2rem solid #eeeff2;
+      border-left: 0.2rem solid #eeeff2;
+      padding: 0 10rem;    
     }
     .numbers {
       line-height: 3rem;
@@ -612,10 +613,7 @@ svg {
       .numbers {
         text-align: center;
       }
-      .users__container:nth-of-type(2),
-      .users__container:nth-of-type(1) {
-        border: none;
-      }
+ 
       .users__container {
         gap: 1rem;
       }
@@ -636,10 +634,7 @@ svg {
       }
     }
     .users {
-      .users__container:nth-of-type(2),
-      .users__container:nth-of-type(1) {
-        border: none;
-      }
+   
       .users__container {
         justify-content: center;
         flex-direction: column;
@@ -656,9 +651,11 @@ svg {
     padding: 0 5rem;
 
     .users {
-      .users__container:nth-of-type(2),
-      .users__container:nth-of-type(1) {
+      
+      .users__container:nth-of-type(2)
+      {
         border: none;
+        padding: 0 ;
       }
       .users__container {
         justify-content: center;
